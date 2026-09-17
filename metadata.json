@@ -1,0 +1,8 @@
+{
+  "name": "Healthcare Cancer Prediction & Analytics",
+  "description": "Cancer prediction ML model and healthcare clinical analytics dashboard based on the patient healthcare dataset.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
