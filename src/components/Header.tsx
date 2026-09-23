@@ -7,11 +7,17 @@ import {
   CheckCircle2,
   HeartPulse,
   Award,
-  Sparkles
+  Sparkles,
+  Camera,
+  Pill,
+  UploadCloud
 } from 'lucide-react';
 
 export type ActiveTabType =
   | 'ai-report-staging'
+  | 'scan-image-ai'
+  | 'medication-advisor'
+  | 'birads-imaging'
   | 'patient-benefits'
   | 'precision-treatment'
   | 'global-epidemiology'
@@ -32,13 +38,13 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
             <span className="font-semibold text-white">Medical Diagnosis AI:</span>
             <span className="text-slate-300">
-              AI Patient Report Stager • Clinical AJCC 8th Edition • Personalized Treatment Pathways
+              AI Pathology Stager • Direct Scan Vision • Case-Based Pharmacotherapy • BI-RADS® 5th Ed.
             </span>
           </div>
           <div className="flex items-center gap-3 text-[11px] font-mono text-slate-400">
             <span className="text-emerald-400 font-bold">97.4% Diagnostic Accuracy</span>
             <span>•</span>
-            <span className="text-indigo-300 font-medium">Stage 0 to IV Staging</span>
+            <span className="text-indigo-300 font-medium">NCCN 2024 Regimens</span>
             <span>•</span>
             <span className="text-emerald-400 font-bold">99.4% Early Survival</span>
           </div>
@@ -55,7 +61,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight">
-                  Medical Diagnosis
+                  Breast Cancer Diagnosis
                 </h1>
                 <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-rose-50 text-rose-700 border border-rose-200">
                   <CheckCircle2 className="h-3 w-3 text-rose-600" />
@@ -63,7 +69,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
                 </span>
               </div>
               <p className="text-xs text-slate-500 font-medium">
-                AI Patient Report Staging • Benefits & Care Pathways • Global Surveillance
+                AI Pathology Staging • Medical Scan Vision • Case-Based Medicines • Survival Surveillance
               </p>
             </div>
           </div>
@@ -73,17 +79,58 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             <nav className="flex flex-wrap items-center gap-1.5 bg-slate-100/90 p-1.5 rounded-2xl border border-slate-200 text-xs font-semibold">
               <button
                 onClick={() => setActiveTab('ai-report-staging')}
-                className={`flex items-center gap-2 px-3.5 py-2 rounded-xl transition-all ${
+                className={`flex items-center gap-2 px-3 py-2 rounded-xl transition-all ${
                   activeTab === 'ai-report-staging'
                     ? 'bg-rose-600 text-white shadow-sm font-bold'
                     : 'text-slate-700 hover:text-slate-900 hover:bg-white/70'
                 }`}
               >
                 <Sparkles className={`h-4 w-4 ${activeTab === 'ai-report-staging' ? 'text-white' : 'text-rose-600'}`} />
-                <span>AI Report Staging</span>
+                <span>AI Staging</span>
                 <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${activeTab === 'ai-report-staging' ? 'bg-white/20 text-white' : 'bg-rose-100 text-rose-700'}`}>
-                  Stage 0–IV
+                  0–IV
                 </span>
+              </button>
+
+              <button
+                onClick={() => setActiveTab('scan-image-ai')}
+                className={`flex items-center gap-2 px-3 py-2 rounded-xl transition-all ${
+                  activeTab === 'scan-image-ai'
+                    ? 'bg-indigo-600 text-white shadow-sm font-bold'
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-white/70'
+                }`}
+              >
+                <Camera className={`h-4 w-4 ${activeTab === 'scan-image-ai' ? 'text-white' : 'text-indigo-600'}`} />
+                <span>Scan Image AI</span>
+                <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${activeTab === 'scan-image-ai' ? 'bg-white/20 text-white' : 'bg-indigo-100 text-indigo-700'}`}>
+                  Upload
+                </span>
+              </button>
+
+              <button
+                onClick={() => setActiveTab('medication-advisor')}
+                className={`flex items-center gap-2 px-3 py-2 rounded-xl transition-all ${
+                  activeTab === 'medication-advisor'
+                    ? 'bg-emerald-600 text-white shadow-sm font-bold'
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-white/70'
+                }`}
+              >
+                <Pill className={`h-4 w-4 ${activeTab === 'medication-advisor' ? 'text-white' : 'text-emerald-600'}`} />
+                <span>Case Medicines</span>
+                <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${activeTab === 'medication-advisor' ? 'bg-white/20 text-white' : 'bg-emerald-100 text-emerald-700'}`}>
+                  Rx
+                </span>
+              </button>
+
+              <button
+                onClick={() => setActiveTab('birads-imaging')}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-xl transition-all ${
+                  activeTab === 'birads-imaging'
+                    ? 'bg-white text-rose-700 shadow-xs font-bold border border-slate-200'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
+                }`}
+              >
+                <span>BI-RADS® Evaluator</span>
               </button>
 
               <button
@@ -95,7 +142,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
                 }`}
               >
                 <HeartPulse className="h-4 w-4 text-emerald-600" />
-                <span>Patient Benefits & Impact</span>
+                <span>Benefits</span>
               </button>
 
               <button
@@ -107,7 +154,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
                 }`}
               >
                 <Stethoscope className="h-4 w-4 text-indigo-600" />
-                <span>Treatment & Staging Guide</span>
+                <span>Treatments</span>
               </button>
 
               <button
@@ -119,7 +166,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
                 }`}
               >
                 <Globe className="h-4 w-4 text-rose-600" />
-                <span>Global Surveillance</span>
+                <span>Surveillance</span>
               </button>
             </nav>
           </div>

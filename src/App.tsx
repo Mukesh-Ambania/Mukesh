@@ -4,6 +4,9 @@ import { Header, ActiveTabType } from './components/Header';
 import { OverviewStats } from './components/OverviewStats';
 import { WisconsinBiopsyPredictor } from './components/WisconsinBiopsyPredictor';
 import { AIPatientReportStager } from './components/AIPatientReportStager';
+import { BiradsImagingEvaluator } from './components/BiradsImagingEvaluator';
+import { MedicalScanUploader } from './components/MedicalScanUploader';
+import { CaseBasedMedicationAdvisor } from './components/CaseBasedMedicationAdvisor';
 import { PatientBenefitsHub } from './components/PatientBenefitsHub';
 import { GlobalEpidemiologyDashboard } from './components/GlobalEpidemiologyDashboard';
 import { PrecisionTreatmentEngine } from './components/PrecisionTreatmentEngine';
@@ -36,6 +39,9 @@ export function App() {
             >
               {activeTab === 'wisconsin-biopsy' && <WisconsinBiopsyPredictor />}
               {activeTab === 'ai-report-staging' && <AIPatientReportStager />}
+              {activeTab === 'scan-image-ai' && <MedicalScanUploader setActiveTab={setActiveTab} />}
+              {activeTab === 'medication-advisor' && <CaseBasedMedicationAdvisor />}
+              {activeTab === 'birads-imaging' && <BiradsImagingEvaluator />}
               {activeTab === 'patient-benefits' && <PatientBenefitsHub />}
               {activeTab === 'global-epidemiology' && <GlobalEpidemiologyDashboard />}
               {activeTab === 'precision-treatment' && <PrecisionTreatmentEngine />}
@@ -49,7 +55,7 @@ export function App() {
           <div className="flex items-center gap-2">
             <Microscope className="h-4 w-4 text-rose-600" />
             <span className="font-semibold text-slate-700">
-              Medical Diagnosis — Clinical AI Cancer Staging & Diagnostics
+              Breast Cancer Diagnosis — Clinical AI Staging, Medical Scan Vision & Diagnostics
             </span>
           </div>
           <div className="flex items-center gap-3 text-slate-400 font-mono text-[11px]">
