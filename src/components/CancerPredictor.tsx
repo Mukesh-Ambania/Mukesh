@@ -122,7 +122,7 @@ export const CancerPredictor: React.FC = () => {
           <div>
             <div className="flex items-center gap-2">
               <span className="px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-rose-100 text-rose-800 border border-rose-200">
-                KNN Inference Engine (K=5)
+                Clinical AI Inference Engine
               </span>
               <span className="text-xs text-slate-400">•</span>
               <span className="text-xs text-slate-500 font-medium">StandardScaler Normalized</span>
@@ -438,7 +438,7 @@ export const CancerPredictor: React.FC = () => {
                     )}
                   </p>
                   <p className="text-xs text-slate-400 mt-0.5">
-                    KNN Nearest Neighbor Vote: <strong className="text-white">{result.nearestNeighborsSummary.cancerMatches} of 5</strong> matches
+                    Diagnostic Similarity Vote: <strong className="text-white">{result.nearestNeighborsSummary.cancerMatches} of 5</strong> matches
                   </p>
                 </div>
               </div>
@@ -492,7 +492,7 @@ export const CancerPredictor: React.FC = () => {
 
                 <div>
                   <div className="flex justify-between text-[11px] text-slate-300 mb-0.5">
-                    <span>KNN Neighbor Cancer Density</span>
+                    <span>Benchmark Case Cancer Density</span>
                     <span className="font-mono font-bold text-white">{result.biomarkerScores.neighborCancerDensity}%</span>
                   </div>
                   <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
@@ -590,7 +590,7 @@ export const CancerPredictor: React.FC = () => {
               <div className="bg-amber-50/70 border border-amber-200/80 p-3.5 rounded-xl flex items-start gap-2.5 text-xs text-amber-900">
                 <Info className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
                 <span>
-                  <strong>Sensitivity Analysis:</strong> See how adjusting individual clinical parameters shifts the KNN classifier output. Click <strong>"Adopt Simulation"</strong> to load any scenario directly into the model inputs.
+                  <strong>Sensitivity Analysis:</strong> See how adjusting individual clinical parameters shifts the diagnostic model output. Click <strong>"Adopt Simulation"</strong> to load any scenario directly into the model inputs.
                 </span>
               </div>
 
@@ -654,7 +654,7 @@ export const CancerPredictor: React.FC = () => {
               <div className="bg-indigo-50/70 border border-indigo-200/80 p-3.5 rounded-xl flex items-start gap-2.5 text-xs text-indigo-900">
                 <Users className="h-4 w-4 text-indigo-600 shrink-0 mt-0.5" />
                 <span>
-                  <strong>Instance-Based Memory:</strong> KNN identifies the 5 historical patient encounters most mathematically similar across normalized continuous features (Age, Billing) and categorical distance metrics.
+                  <strong>Instance-Based Memory:</strong> The diagnostic engine identifies the 5 historical patient encounters most mathematically similar across normalized continuous features (Age, Billing) and categorical distance metrics.
                 </span>
               </div>
 

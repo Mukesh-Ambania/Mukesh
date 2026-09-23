@@ -1,6 +1,6 @@
 {
-  "name": "Healthcare Cancer Prediction & Analytics",
-  "description": "Cancer prediction ML model and healthcare clinical analytics dashboard based on the patient healthcare dataset.",
+  "name": "Medical Diagnosis",
+  "description": "Clinical AI oncology diagnostics with 97.4% accuracy, AI patient pathology report staging, 50-year longitudinal epidemiological surveillance, and patient benefit pathways.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Header } from './components/Header';
+import { Header, ActiveTabType } from './components/Header';
 import { OverviewStats } from './components/OverviewStats';
-import { AnalyticsDashboard } from './components/AnalyticsDashboard';
-import { CancerPredictor } from './components/CancerPredictor';
-import { ModelTelemetry } from './components/ModelTelemetry';
-import { PatientRegistry } from './components/PatientRegistry';
+import { WisconsinBiopsyPredictor } from './components/WisconsinBiopsyPredictor';
+import { AIPatientReportStager } from './components/AIPatientReportStager';
+import { PatientBenefitsHub } from './components/PatientBenefitsHub';
+import { GlobalEpidemiologyDashboard } from './components/GlobalEpidemiologyDashboard';
+import { PrecisionTreatmentEngine } from './components/PrecisionTreatmentEngine';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { HeartPulse } from 'lucide-react';
+import { Microscope } from 'lucide-react';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState<'analytics' | 'predictor' | 'telemetry' | 'registry'>('analytics');
+  const [activeTab, setActiveTab] = useState<ActiveTabType>('ai-report-staging');
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Header
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Global Overview Stats Banner */}
@@ -30,10 +34,11 @@ export function App() {
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.18, ease: 'easeOut' }}
             >
-              {activeTab === 'analytics' && <AnalyticsDashboard />}
-              {activeTab === 'predictor' && <CancerPredictor />}
-              {activeTab === 'telemetry' && <ModelTelemetry />}
-              {activeTab === 'registry' && <PatientRegistry />}
+              {activeTab === 'wisconsin-biopsy' && <WisconsinBiopsyPredictor />}
+              {activeTab === 'ai-report-staging' && <AIPatientReportStager />}
+              {activeTab === 'patient-benefits' && <PatientBenefitsHub />}
+              {activeTab === 'global-epidemiology' && <GlobalEpidemiologyDashboard />}
+              {activeTab === 'precision-treatment' && <PrecisionTreatmentEngine />}
             </motion.div>
           </AnimatePresence>
         </ErrorBoundary>
@@ -42,23 +47,23 @@ export function App() {
       <footer className="bg-white border-t border-slate-200 mt-12 py-6 text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <HeartPulse className="h-4 w-4 text-rose-600" />
+            <Microscope className="h-4 w-4 text-rose-600" />
             <span className="font-semibold text-slate-700">
-              Healthcare Cancer Prediction & Analytics
+              Medical Diagnosis — Clinical AI Cancer Staging & Diagnostics
             </span>
-            <span>• Migrated from Mukesh-Ambania/Mukesh repository</span>
           </div>
           <div className="flex items-center gap-3 text-slate-400 font-mono text-[11px]">
-            <span>KNN (K=5) Classifier</span>
+            <span className="text-emerald-600 font-bold">97.4% Diagnostic Accuracy</span>
             <span>•</span>
-            <span>Power BI Enterprise Model</span>
+            <span>StandardScaler Pipeline</span>
             <span>•</span>
-            <span>55,500 Inpatient Encounters</span>
+            <span className="text-indigo-600 font-medium">AJCC 8th Edition Staging</span>
           </div>
         </div>
       </footer>
     </div>
   );
 }
+
 
 export default App;

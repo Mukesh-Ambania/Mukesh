@@ -108,14 +108,14 @@ export const PatientDetailModal: React.FC<PatientDetailModalProps> = ({ patient,
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold uppercase tracking-wider">
-                      KNN Inferred Risk: <strong className="text-base">{riskResult.riskScore}%</strong>
+                      Diagnostic AI Risk Score: <strong className="text-base">{riskResult.riskScore}%</strong>
                     </span>
                     <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-white/80 border border-current">
                       {riskResult.riskLevel}
                     </span>
                   </div>
                   <p className="text-[11px] opacity-80 mt-0.5">
-                    Ground Truth Pathology: <strong className="underline">{patient.condition}</strong> • {riskResult.nearestNeighborsSummary.cancerMatches}/5 Nearest Neighbors Confirmed Cancer
+                    Ground Truth Pathology: <strong className="underline">{patient.condition}</strong> • {riskResult.nearestNeighborsSummary.cancerMatches}/5 Benchmark Biopsy Matches Confirmed Cancer
                   </p>
                 </div>
               </div>

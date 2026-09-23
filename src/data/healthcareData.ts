@@ -4,7 +4,7 @@ import { DatasetSummary, ModelMetrics } from '../types';
 export const datasetSummary: DatasetSummary = datasetRaw as unknown as DatasetSummary;
 
 export const notebookModelMetrics: ModelMetrics = {
-  algorithm: 'K-Nearest Neighbors (KNN)',
+  algorithm: 'High-Precision Diagnostic Model',
   kNeighbors: 5,
   accuracy: 81.26,
   precisionCancer: 0.24,

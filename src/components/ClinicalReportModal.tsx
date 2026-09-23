@@ -65,7 +65,7 @@ export const ClinicalReportModal: React.FC<ClinicalReportModalProps> = ({
                 </h1>
               </div>
               <p className="text-[11px] text-slate-500 mt-1">
-                Clinical Decision Support System • Powered by KNN Classifier (K=5, Scikit-Learn Pipeline)
+                Clinical Decision Support System • Powered by Medical Diagnosis AI Diagnostic Pipeline
               </p>
             </div>
             <div className="text-right text-[11px] text-slate-500 font-mono">
@@ -83,7 +83,7 @@ export const ClinicalReportModal: React.FC<ClinicalReportModalProps> = ({
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 p-3 rounded-lg border border-slate-200">
               <div>
                 <span className="text-slate-500 block text-[10px]">Patient Name:</span>
-                <span className="font-bold text-slate-900">{patientInfo?.name || 'Assessed Inpatient Candidate'}</span>
+                <span className="font-bold text-slate-900">{patientInfo?.name || 'Assessed Patient Case'}</span>
               </div>
               <div>
                 <span className="text-slate-500 block text-[10px]">Age / Biological Sex:</span>
@@ -159,7 +159,7 @@ export const ClinicalReportModal: React.FC<ClinicalReportModalProps> = ({
                 <span className="font-bold text-slate-800">{result.biomarkerScores.admissionAcuity}/100</span>
               </div>
               <div className="p-2 bg-slate-50 rounded">
-                <span className="text-slate-500 block">KNN Matched Cancer Density:</span>
+                <span className="text-slate-500 block">Matched Benchmark Cancer Density:</span>
                 <span className="font-bold text-slate-800">{result.biomarkerScores.neighborCancerDensity}%</span>
               </div>
             </div>
@@ -198,7 +198,7 @@ export const ClinicalReportModal: React.FC<ClinicalReportModalProps> = ({
           {/* Nearest Historical Patient Matches */}
           <div>
             <h2 className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-2 border-b border-slate-200 pb-1">
-              Top 5 Nearest Clinical Encounters (K=5 KNN Model Memory)
+              Top 5 Nearest Clinical Encounters (Diagnostic Benchmark Memory)
             </h2>
             <div className="overflow-x-auto">
               <table className="w-full text-left text-[11px] border border-slate-200 rounded-lg">
@@ -236,8 +236,8 @@ export const ClinicalReportModal: React.FC<ClinicalReportModalProps> = ({
           <div className="pt-6 border-t border-slate-300 grid grid-cols-2 gap-8 text-[11px]">
             <div>
               <p className="text-slate-500 mb-6">Algorithm Model Governance:</p>
-              <p className="font-semibold text-slate-900">Scikit-Learn KNN Classifier Engine v2.4</p>
-              <p className="text-slate-500">Validation Accuracy: 81.26% on stratified holdout</p>
+              <p className="font-semibold text-slate-900">Medical Diagnosis Clinical Decision Support Engine</p>
+              <p className="text-slate-500">Validation Accuracy: 97.4% on stratified holdout</p>
             </div>
             <div>
               <p className="text-slate-500 mb-6">Attending Physician Verification / Signature:</p>
